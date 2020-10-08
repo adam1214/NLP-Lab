@@ -37,18 +37,21 @@ def sentence_prob(sentence):
     str_list = sentence.split(" ")
     sum = 0
     for i in range(1, len(str_list)):
-        #print(str_list[i])
-        print(str_list[i-1])
-        print(str_list[i])
-        print(bi_count[(str_list[i-1], str_list[i])])
-        print(uni_count[i-1] + 1)
-        sum = sum + math.log((bi_count[(str_list[i-1], str_list[i])] + 1) / (uni_count[i-1] + V))
+        lower_prev_token_list = words(str_list[i-1])
+        lower_curr_token_list = words(str_list[i])
+        lower_prev_token = ""
+        lower_prev_token += lower_prev_token_list[0]
+        lower_curr_token = ""
+        lower_curr_token += lower_curr_token_list[0]
+        print("Count of '{} {}' : {}" .format(lower_prev_token, lower_curr_token, bi_count[(lower_prev_token, lower_curr_token)]))
+        print("Count of '{}' : {}" .format(lower_prev_token, uni_count[lower_prev_token]))
+        sum = sum + math.log((bi_count[(lower_prev_token, lower_curr_token)] + 1) / (uni_count[lower_prev_token] + V))
         print("=====================")
     return sum
 
 
 if __name__ == "__main__":
-    lm1 = sentence_prob("He is looking to a new job")
-    lm2 = sentence_prob("He is looking for a new job")
+    lm1 = sentence_prob("He is looking to a new job.")
+    lm2 = sentence_prob("He is looking for a new job.")
     print(lm1)
     print(lm2)
