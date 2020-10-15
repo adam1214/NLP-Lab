@@ -51,7 +51,17 @@ def sentence_prob(sentence):
 
 
 if __name__ == "__main__":
+    '''
     lm1 = sentence_prob("He is looking to a new job.")
     lm2 = sentence_prob("He is looking for a new job.")
     print(lm1)
     print(lm2)
+    '''
+    ori_word = re.findall("\w+", "the quick person did not realize his speed and the quick person bumped") 
+    process_word = islice(ori_word, 1, None)
+    print(ori_word)
+    print(list(process_word))
+    #A = zip(ori_word, process_word)
+    #A = zip(words(open('big.txt').read()), islice(words(open('big.txt').read()), 1, None))
+    print(type(ori_word))
+    
