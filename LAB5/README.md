@@ -1,0 +1,2 @@
+* [Description](https://www.notion.so/NLP-Assignment-5-024626f03c5b4f02ad67e12d5af4748c)
+* If `get_sbg_stat(function to get response from lab server)` isn't available, [`sb.dist` download here](https://drive.google.com/drive/folders/1Lp-fe2xt2CPclx9_edCBg5Ps956dxBSC)
