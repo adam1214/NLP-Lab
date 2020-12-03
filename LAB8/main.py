@@ -43,9 +43,8 @@ for q in query:
         #print(references)
         text = ""
         obj = html.find('object') # 找出 html 裡第一個出現的obj
-        paragraph = obj.find_all('section', class_="word__defination--2q7ZH undefined")
-        for p in paragraph:
-            text += p.get_text()
+        paragraph = obj.find('section', class_="word__defination--2q7ZH undefined")
+        text += paragraph.get_text()
         #print(text)
 
         word_dict[q] = {'url': URL, 'title': title, 'foreigns': foreigns, 'references': references, 'text': text}
