@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as soup
+import pickle
 query = ['adventure', 'education', 'predict', 'international', 'scholarship']
 #query = ['prepare']
 word_dict = {}
@@ -52,10 +53,15 @@ for q in query:
     else:
         print('Failed', response.status_code)
 
-for word, word_contents in word_dict.items():
-    print(word)
-    print(word_contents)
-    #for content_name, content in word_contents.items():
-        #print(content_name)
-        #print(content)
-    print('=======================================')
+with open('word_dict', 'wb') as fp:
+    pickle.dump(word_dict, fp)
+
+with open ('word_dict', 'rb') as fp:
+    word_dict = pickle.load(fp)
+    for word, word_contents in word_dict.items():
+        print(word)
+        print(word_contents)
+        #for content_name, content in word_contents.items():
+            #print(content_name)
+            #print(content)
+        print('=======================================')
