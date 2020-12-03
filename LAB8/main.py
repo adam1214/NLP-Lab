@@ -25,24 +25,24 @@ for q in query:
         title = title + " " + title_part
         #print(title)
         foreigns = []
-        div = html.find('div') # 找出 html 裡第一個出現的div
-        paragraph = div.find_all('span', class_="foreign")
+        obj = html.find('object') # 找出 html 裡第一個出現的obj
+        #print(obj)
+        paragraph = obj.find_all('span', class_="foreign")
         #print(paragraph)
-        for i in range(0,11,1):
-            paragraph[i] = paragraph[i].get_text()
+        for p in paragraph:
+            p = p.get_text()
             #print(paragraph[i])
-            foreigns.append(paragraph[i])
+            foreigns.append(p)
         #print(foreigns)
-        paragraph = div.find_all('span', class_="crossreference")
+        paragraph = obj.find_all('span', class_="crossreference")
         #print(paragraph)
         references = []
-        for i in range(0,3,1):
-            paragraph[i] = paragraph[i].get_text()
+        for p in paragraph:
+            p = p.get_text()
             #print(paragraph[i])
-            references.append(paragraph[i])
+            references.append(p)
         #print(references)
         text = ""
-        obj = html.find('object') # 找出 html 裡第一個出現的obj
         paragraph = obj.find('section', class_="word__defination--2q7ZH undefined")
         text += paragraph.get_text()
         #print(text)
