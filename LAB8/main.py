@@ -31,7 +31,6 @@ for q in query:
         #print(paragraph)
         for p in paragraph:
             p = p.get_text()
-            #print(paragraph[i])
             foreigns.append(p)
         #print(foreigns)
         paragraph = obj.find_all('span', class_="crossreference")
@@ -39,7 +38,6 @@ for q in query:
         references = []
         for p in paragraph:
             p = p.get_text()
-            #print(paragraph[i])
             references.append(p)
         #print(references)
         text = ""
